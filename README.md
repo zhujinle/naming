@@ -1,2 +1,3 @@
-# RandStudents
-A Random Project of student in class
+# 项目介绍
+
+英语老师让我写一个随机点名的软件，于是乎...
