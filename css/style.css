@@ -39,3 +39,9 @@
   font-size: 70pt;
   font-weight: bold;
 }
+
+@media (max-width: 767px) {
+  .roll-card .title {
+    font-size: 40pt;
+  }
+}
