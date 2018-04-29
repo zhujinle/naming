@@ -80,6 +80,9 @@ var slidecount = 0;
 
 function randStart() {
   (function() {
+    $("div.card.clickable")
+      .nextAll()
+      .remove();
     tail = $("div.roll-card.clickable");
     slidecount = 0;
     slide();
