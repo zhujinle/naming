@@ -1,5 +1,4 @@
-// 暂时没找到如何动态加载
-var data = [
+const data = [
   "常钜沅",
   "陈明宇",
   "陈雨欣",
@@ -61,3 +60,74 @@ var data = [
   "赵泽宇",
   "周博涛"
 ];
+let randData = data;
+var waitTime = 3;
+function randomNum(minNum, maxNum) {
+  switch (arguments.length) {
+    case 1:
+      return parseInt(Math.random() * minNum + 1, 10);
+      break;
+    case 2:
+      return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+      break;
+    default:
+      return 0;
+      break;
+  }
+}
+
+var slidecount = 0;
+
+function randStart() {
+  (function() {
+    tail = $("div.roll-card.clickable");
+    slidecount = 0;
+    slide();
+  })();
+}
+
+function getNextCardText() {
+  let len = randomNum(0, data.length - 1);
+  let name = randData[len];
+
+  return name;
+}
+
+// 将卡片向上移动
+function showCard(selector, duration, complete) {
+  $(selector).animate({ top: "-1px" }, duration, "swing", complete);
+}
+
+function slide() {
+  if (slidecount > 35) {
+    return;
+  }
+
+  // 滑动时间
+  var duration =
+    slidecount > 33
+      ? 1500
+      : slidecount > 32
+        ? 800
+        : slidecount > 25
+          ? 400
+          : slidecount > 20
+            ? 200
+            : slidecount > 15
+              ? 150
+              : 100;
+
+  const cardName = getNextCardText();
+
+  card = $(
+    '<div class="roll-card">' +
+      '<div class="title">' +
+      cardName +
+      "</div>" +
+      "</div>"
+  );
+  tail.after(card);
+  tail = card;
+  slidecount++;
+  showCard(card, duration, slide);
+}

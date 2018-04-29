@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>上课点名器</title>
-    <link rel="shortcut icon" href="../img/avatar-himself65.jpg">
+    <link rel="shortcut icon" href="./img/avatar-himself65.jpg">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script type="text/javascript" src="./js/main.js"></script>
@@ -27,38 +27,56 @@
             </li>
         </div>
     </nav>
-    <div class="container" style="margin-top: 30px;">
-        <div class="col">
+    <!-- Roll -->
+    <div class="container">
+        <div class="row row-margin-top">
+            <div class="roll">
+                <div class="roll-card" style="top:-1px;font-size:20pt">
+                    <span>点击下方按钮开始点名</span>
+                </div>
+                <div class="roll-card clickable"></div>
+            </div>
+        </div>
+        <!-- Main -->
+        <div class="row row-margin-top">
+            <button id="randbuttom" type="button" class="btn btn-primary btn-block">开始随机</button>
+            <button id="testbuttom" type="button" class="btn btn-dark btn-block">测试按钮</button>
+            <div class="input-group input-margin-top">
+                <span class="input-group-text" id="basic-addon1">冷却时间</span>
+                <input type="text" class="form-control" placeholder="默认三秒" aria-describedby="basic-addon1" value="3">
+                <span class="input-group-text" id="basic-addon1">秒</span>
+            </div>
+        </div>
+        <!-- Other -->
+        <div id="cards" class="row row-margin-top">
             <div class="card">
                 <div class="card-header">
-                    haed
+                    <span>Alpha 1.0 版本</span>
+                    <span class="badge badge-info">Info</span>
                 </div>
                 <div class="card-body">
-                    测试
+                    <li>完成随机点名的基本实现</li>
+                    <li>仅支持随机446班的学生</li>
                 </div>
                 <div class="card-footer">
-                    code by Himself65
+                    2018-4-29
                 </div>
             </div>
         </div>
-        <div class="col">
-            <button id="randbuttom" type="button" class="btn btn-primary btn-block">开始随机</button>
-        </div>
     </div>
 
     </div>
-    <div class="footer">
-        <div>
-
+    <footer class="footer">
+        <div class="container">
+            <span> Code by
+                <a href="https://github.com/Himself65" target="_">Himself65</a>
+            </span>
         </div>
-    </div>
+    </footer>
 </body>
 <script>
-    function rand() {
-        console.log(data[0]);
-    }
-    let randbuttom = document.getElementById('randbuttom');
-    randbuttom.onclick = rand;
+    $('#randbuttom').click(randStart);
+    console.log('hello,world');
 </script>
 
 </html>
