@@ -62,6 +62,7 @@ const data = [
 ];
 let randData = data;
 var waitTime = 3;
+
 function randomNum(minNum, maxNum) {
   switch (arguments.length) {
     case 1:
@@ -79,13 +80,15 @@ function randomNum(minNum, maxNum) {
 var slidecount = 0;
 
 function restart() {
+  console.log('restart');
   $("div.roll-card.clickable")
     .nextAll()
     .remove();
+  showCard('div.card.clickable', 300);
 }
 
 function randStart() {
-  (function() {
+  (function () {
     tail = $("div.roll-card.clickable");
     slidecount = 0;
     slide();
@@ -101,7 +104,9 @@ function getNextCardText() {
 
 // 将卡片向上移动
 function showCard(selector, duration, complete) {
-  $(selector).animate({ top: "-1px" }, duration, "swing", complete);
+  $(selector).animate({
+    top: "-1px"
+  }, duration, "swing", complete);
 }
 
 function slide() {
@@ -111,26 +116,26 @@ function slide() {
 
   // 滑动时间
   var duration =
-    slidecount > 33
-      ? 1500
-      : slidecount > 32
-        ? 800
-        : slidecount > 25
-          ? 400
-          : slidecount > 20
-            ? 200
-            : slidecount > 15
-              ? 150
-              : 100;
+    slidecount > 33 ?
+    1500 :
+    slidecount > 32 ?
+    800 :
+    slidecount > 25 ?
+    400 :
+    slidecount > 20 ?
+    200 :
+    slidecount > 15 ?
+    150 :
+    100;
 
   const cardName = getNextCardText();
 
   card = $(
     '<div class="roll-card">' +
-      '<div class="title">' +
-      cardName +
-      "</div>" +
-      "</div>"
+    '<div class="title">' +
+    cardName +
+    "</div>" +
+    "</div>"
   );
   tail.after(card);
   tail = card;
