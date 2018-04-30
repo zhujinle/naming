@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "点名器" 
 ---
 <div class="container">
     <div class="row row-margin-top">
@@ -17,18 +16,21 @@ title: "点名器"
         <button id="restartbuttom" type="button" class="btn btn-dark btn-block">刷新点名板</button>
     </div>
     <!-- Other -->
-    <div id="cards" class="row row-margin-top">
-        <div class="card">
-            <div class="card-header">
-                <span>Alpha 1.0 版本</span>
-                <span class="badge badge-info">Info</span>
-            </div>
-            <div class="card-body">
-                <li>完成随机点名的基本实现</li>
-                <li>仅支持随机446班的学生</li>
-            </div>
-            <div class="card-footer">
-                2018-4-29
+    <div class="row row-margin-top">
+        <div class="card-deck-wrapper">
+            <div class="card-deck">
+                {% for post in site.posts %}
+                <div class="card">
+                    <div class="card-header">
+                        <span> {{post.title}} </span>
+                        <span class="badge badge-{{ post.type }}">{{post.badage}}</span>
+                    </div>
+                    <div class="card-body">{{post.content}}</div>
+                    <div class="card-footer">
+                        {{post.date | date: "%B %-d, %Y" }}
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
