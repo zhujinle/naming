@@ -1,74 +1,38 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>上课点名器</title>
-    <link rel="shortcut icon" href="./img/avatar-himself65.jpg">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script type="text/javascript" src="./js/main.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.js"></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="">LOGO</a>
-
-        <div class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">关于</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://himself65.com" target="_">主站</a>
-            </li>
-        </div>
-    </nav>
-    <!-- Roll -->
-    <div class="container">
-        <div class="row row-margin-top">
-            <div class="roll">
-                <div class="roll-card" style="top:-1px;font-size:20pt">
-                    <span>点击下方按钮开始点名</span>
-                </div>
-                <div class="roll-card clickable"></div>
+---
+layout: default
+title: "点名器" 
+---
+<div class="container">
+    <div class="row row-margin-top">
+        <div class="roll">
+            <div class="roll-card" style="top:-1px;font-size:20pt">
+                <span>点击下方按钮开始点名</span>
             </div>
+            <div class="roll-card clickable"></div>
         </div>
-        <!-- Main -->
-        <div class="row row-margin-top">
-            <button id="randbuttom" type="button" class="btn btn-primary btn-block">开始随机</button>
-            <button id="restartbuttom" type="button" class="btn btn-dark btn-block">刷新点名板</button>
-        </div>
-        <!-- Other -->
-        <div id="cards" class="row row-margin-top">
-            <div class="card">
-                <div class="card-header">
-                    <span>Alpha 1.0 版本</span>
-                    <span class="badge badge-info">Info</span>
-                </div>
-                <div class="card-body">
-                    <li>完成随机点名的基本实现</li>
-                    <li>仅支持随机446班的学生</li>
-                </div>
-                <div class="card-footer">
-                    2018-4-29
-                </div>
+    </div>
+    <!-- Main -->
+    <div class="row row-margin-top">
+        <button id="randbuttom" type="button" class="btn btn-primary btn-block">开始随机</button>
+        <button id="restartbuttom" type="button" class="btn btn-dark btn-block">刷新点名板</button>
+    </div>
+    <!-- Other -->
+    <div id="cards" class="row row-margin-top">
+        <div class="card">
+            <div class="card-header">
+                <span>Alpha 1.0 版本</span>
+                <span class="badge badge-info">Info</span>
+            </div>
+            <div class="card-body">
+                <li>完成随机点名的基本实现</li>
+                <li>仅支持随机446班的学生</li>
+            </div>
+            <div class="card-footer">
+                2018-4-29
             </div>
         </div>
     </div>
-
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <span> Code by
-                <a href="https://github.com/Himself65" target="_">Himself65</a>
-            </span>
-        </div>
-    </footer>
-</body>
+</div>
 <script>
     $('#randbuttom').click(randStart);
     $('#restartbuttom').click(restart);

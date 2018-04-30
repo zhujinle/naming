@@ -1,1 +1,9 @@
 .vscode
+Gemfile.lock
+Gemfile
+_site
+
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*cache

@@ -63,6 +63,12 @@ const data = [
 let randData = data;
 var waitTime = 3;
 
+function getData(classNum) {
+  $.get(`./json/${classNum}.json`).done(data => {
+    console.log(data);
+  })
+}
+
 function randomNum(minNum, maxNum) {
   switch (arguments.length) {
     case 1:
@@ -80,11 +86,11 @@ function randomNum(minNum, maxNum) {
 var slidecount = 0;
 
 function restart() {
-  console.log('restart');
+  console.log("restart");
   $("div.roll-card.clickable")
     .nextAll()
     .remove();
-  showCard('div.card.clickable', 300);
+  showCard("div.card.clickable", 300);
 }
 
 function randStart() {
@@ -92,6 +98,8 @@ function randStart() {
     tail = $("div.roll-card.clickable");
     slidecount = 0;
     slide();
+    $('div.roll-card.clickable')
+
   })();
 }
 
@@ -105,8 +113,12 @@ function getNextCardText() {
 // 将卡片向上移动
 function showCard(selector, duration, complete) {
   $(selector).animate({
-    top: "-1px"
-  }, duration, "swing", complete);
+      top: "-1px"
+    },
+    duration,
+    "swing",
+    complete
+  );
 }
 
 function slide() {

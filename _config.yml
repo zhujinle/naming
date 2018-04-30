@@ -1,0 +1,29 @@
+title: 点名器
+email: himself6565@gmail.com
+description: 
+  "上课点名器"
+url: "http://random.himself65.com"
+baseurl: "." # Don't change
+
+
+weibo_username:     Himself65
+zhihu_username:     Himself65
+github_username:    Himself65
+twitter_username:   MrSweerBread
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+gems: [jekyll-paginate]
+
+
+# Google Analytics
+ga_track_id: 'UA-110549153-1'            # Format: UA-xxxxxx-xx
+ga_domain: Himself65
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
