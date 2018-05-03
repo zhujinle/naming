@@ -133,7 +133,15 @@ const group_5 = [
 
 const groups = [data, group_1, group_2, group_3, group_4, group_5];
 
-const expect_name = ["杨泽宇", "赵阳阳", "赵继鑫", "李靖", "王雯佳", "连浩毅"];
+const expect_name = [
+  "杨泽宇",
+  "赵阳阳",
+  "赵继鑫",
+  "李靖",
+  "王雯佳",
+  "连浩毅",
+  "许鑫苑"
+];
 
 let link_data = data;
 
