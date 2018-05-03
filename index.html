@@ -1,7 +1,31 @@
 ---
 layout: default
 ---
+
 <div class="container">
+    <!-- Select -->
+    <div class="row row-margin-top">
+        <button id="roll-all" type="button" class="list-group-item btn-lg sele-btn active">全部随机</button>
+    </div>
+    <div class="row row-margin-top">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option1" value="1" autocomplete="off">一组
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2" value="2" autocomplete="off">二组
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option3" value="3" autocomplete="off">三组
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option4" value="4" autocomplete="off">四组
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option5" value="5" autocomplete="off">五组
+            </label>
+        </div>
+    </div>
     <div class="row row-margin-top">
         <div class="roll">
             <div class="roll-card" style="top:-1px;font-size:20pt">
@@ -10,6 +34,7 @@ layout: default
             <div class="roll-card clickable"></div>
         </div>
     </div>
+
     <!-- Main -->
     <div class="row row-margin-top">
         <button id="randbuttom" type="button" class="btn btn-primary btn-block">开始随机</button>
@@ -36,8 +61,31 @@ layout: default
     </div>
 </div>
 <script>
+    // 移除全部active属性
+    function removeAction() {
+        $('.active').removeClass('active');
+    }
+
+    $(':radio').click(function () {
+        removeAction();
+        $(this).parent('label').addClass('active');
+    });
+    $('button').click(function () {
+        removeAction();
+        $(this).addClass('active');
+    });
+
+    // Other
     $('#randbuttom').click(randStart);
     $('#restartbuttom').click(restart);
+
+    // Section
+    $('#roll-all').click(() => {
+        link_data = groups[0];
+    });
+    $(':radio').click(function() {
+        link_data = groups[$(this).val()];
+    });
 </script>
 
 </html>
