@@ -60,6 +60,11 @@
   height: 300px;
 }
 
+/* Hide the ele */
+.hidden {
+  visibility: hidden;
+}
+
 .roll-card {
   background: #ffffff;
   text-align: center;

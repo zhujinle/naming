@@ -60,13 +60,71 @@ const data = [
   "赵泽宇",
   "周博涛"
 ];
-let randData = data;
+
+const real_data = [
+  "常钜沅",
+  "陈明宇",
+  "陈雨欣",
+  "程麒璇",
+  "崔于龙博",
+  "崔兆瑞",
+  "樊宇霞",
+  "范鑫荣",
+  "范益佳",
+  "郭昌兴",
+  "郭荣旺",
+  "郭效言",
+  "韩宇",
+  "韩玉欣",
+  "郝星宇",
+  "冀青香",
+  "贾皓",
+  "江昢",
+  "郎圣春",
+  "李丹晨",
+  "李瑾瑶",
+  "李可飞",
+  "李尚伦",
+  "连浩毅",
+  "刘宇康",
+  "孟菁昀",
+  "师佳琪",
+  "史睿思",
+  "史宇辉",
+  "苏洋",
+  "孙熠晖",
+  "唐瑜",
+  "陶思娟",
+  "王文宣",
+  "王奕夫",
+  "王泽寰",
+  "魏瑞龙",
+  "武超仪",
+  "武文琪",
+  "武宇凡",
+  "许鑫苑",
+  "杨涵舒",
+  "杨薪煜",
+  "杨铮",
+  "张皓翔",
+  "张佳琦",
+  "张琳浠",
+  "张晟瑄",
+  "张子钰",
+  "赵航宇",
+  "赵佳慧",
+  "赵美琳",
+  "赵心嫣",
+  "赵泽宇",
+  "周博涛"
+];
+
 var waitTime = 3;
 
 function getData(classNum) {
   $.get(`./json/${classNum}.json`).done(data => {
     console.log(data);
-  })
+  });
 }
 
 function randomNum(minNum, maxNum) {
@@ -84,7 +142,6 @@ function randomNum(minNum, maxNum) {
 }
 
 var slidecount = 0;
-
 function restart() {
   console.log("restart");
   $("div.roll-card.clickable")
@@ -94,25 +151,25 @@ function restart() {
 }
 
 function randStart() {
-  (function () {
+  (function() {
     tail = $("div.roll-card.clickable");
     slidecount = 0;
     slide();
-    $('div.roll-card.clickable')
-
+    $("div.roll-card.clickable");
   })();
 }
 
-function getNextCardText() {
-  let len = randomNum(0, data.length - 1);
-  let name = randData[len];
+function getNextCardText(from) {
+  let len = randomNum(0, from.length - 1);
+  let name = from[len];
 
   return name;
 }
 
 // 将卡片向上移动
 function showCard(selector, duration, complete) {
-  $(selector).animate({
+  $(selector).animate(
+    {
       top: "-1px"
     },
     duration,
@@ -121,33 +178,46 @@ function showCard(selector, duration, complete) {
   );
 }
 
+function finish_roll() {
+  //
+}
+
 function slide() {
   if (slidecount > 35) {
+    let cardName = getNextCardText(real_data);
+    card = $(
+      '<div class="roll-card">' +
+        '<div class="title">' +
+        cardName +
+        "</div>" +
+        "</div>"
+    );
+    tail.after(card);
+    tail = card;
+    slidecount++;
+    showCard(card, 1200, finish_roll);
     return;
   }
-
   // 滑动时间
   var duration =
-    slidecount > 33 ?
-    1500 :
-    slidecount > 32 ?
-    800 :
-    slidecount > 25 ?
-    400 :
-    slidecount > 20 ?
-    200 :
-    slidecount > 15 ?
-    150 :
-    100;
-
-  const cardName = getNextCardText();
-
+    slidecount > 33
+      ? 1200
+      : slidecount > 32
+        ? 800
+        : slidecount > 25
+          ? 400
+          : slidecount > 20
+            ? 200
+            : slidecount > 15
+              ? 150
+              : 100;
+  let cardName = getNextCardText(data);
   card = $(
     '<div class="roll-card">' +
-    '<div class="title">' +
-    cardName +
-    "</div>" +
-    "</div>"
+      '<div class="title">' +
+      cardName +
+      "</div>" +
+      "</div>"
   );
   tail.after(card);
   tail = card;
