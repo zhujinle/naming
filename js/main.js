@@ -133,7 +133,8 @@ const group_5 = [
 
 const groups = [data, group_1, group_2, group_3, group_4, group_5];
 
-const expect_name = [
+// 永远不会被抽到名字
+const white_list = [
   "杨泽宇",
   "赵阳阳",
   "赵继鑫",
@@ -144,12 +145,6 @@ const expect_name = [
 ];
 
 let link_data = data;
-
-function getData(classNum) {
-  $.get(`./json/${classNum}.json`).done(data => {
-    console.log(data);
-  });
-}
 
 // random a int from [minNum, maxNum]
 function randomNum(minNum, maxNum) {
@@ -177,7 +172,7 @@ function restart() {
 }
 
 function randStart() {
-  (function() {
+  (function () {
     tail = $("div.roll-card.clickable");
     slidecount = 0;
     slide();
@@ -220,15 +215,15 @@ function contains(arr, obj) {
 function check_name() {
   // Check
   let title = $(`.roll-card-id-${slidecount - 1}`).text();
-  while (contains(expect_name, title)) {
+  while (contains(white_list, title)) {
     title = getNextCardText(link_data);
   }
   card = $(
     '<div class="roll-card">' +
-      '<div class="title">' +
-      title +
-      "</div>" +
-      "</div>"
+    '<div class="title">' +
+    title +
+    "</div>" +
+    "</div>"
   );
   card.addClass(`roll-card-id-${slidecount}`);
   tail.after(card);
@@ -257,10 +252,10 @@ function slide() {
   let cardName = getNextCardText(link_data);
   card = $(
     '<div class="roll-card">' +
-      '<div class="title">' +
-      cardName +
-      "</div>" +
-      "</div>"
+    '<div class="title">' +
+    cardName +
+    "</div>" +
+    "</div>"
   );
   card.addClass(`roll-card-id-${slidecount}`);
   tail.after(card);
