@@ -13,13 +13,13 @@ const CACHE_NAMESPACE = "main-";
 
 const CACHE = CACHE_NAMESPACE + "precache-then-runtime";
 const PRECACHE_LIST = [
-  "/",
-  "/js/jquery.min.js",
-  "/js/bootstrap.min.js",
-  "/js/snackbar.js",
-  "/img/home-bg.jpg",
-  "/img/404-bg.jpg",
-  "/css/bootstrap.min.css"
+  "./",
+  "./js/jquery.min.js",
+  "./js/bootstrap.min.js",
+  "./js/snackbar.js",
+  "./img/home-bg.jpg",
+  "./img/404-bg.jpg",
+  "./css/bootstrap.min.css"
 ];
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
